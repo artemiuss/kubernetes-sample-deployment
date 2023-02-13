@@ -34,16 +34,16 @@ spec:
         - containerPort: 9090
         resources: {}
         volumeMounts:
-        - mountPath: /etc/prometheus
+        - mountPath: /etc/prometheus/prometheous.yml
           name: prometheus-config-volume
-          subPath: prometheus.yml 
+          subPath: prometheus.yml
         - mountPath: /prometheus
           name: prom-data
       restartPolicy: Always
       serviceAccountName: ""
       volumes:
       - name: prometheus-config-volume
-        configMap: 
+        configMap:
           name: prometheus-cfgmap
       - name: prom-data
         persistentVolumeClaim:
